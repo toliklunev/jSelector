@@ -1,0 +1,60 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\000031}}
+.jselector {
+  display: inline-block;
+  border: 1px solid #B9B9B9;
+  height: 27px;
+  line-height: 27px;
+  cursor: pointer;
+  text-align: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\000039}}
+.jselector ul {
+  background: #FFF;
+  margin-top: -1px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #CCC;
+  max-height: 500px;
+  overflow: auto;
+  z-index: 20;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000322}}
+.jselector ul li:hover {
+  background: #95CAFF;
+  color: #FFF;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000327}}
+.jselector ul li.selected {
+  background: #3399FF;
+  color: #FFF;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000335}}
+.jselector ul > li,
+.jselector > .wrap {
+  display: block;
+  height: 100%;
+  padding: 0 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000345}}
+.jselector > .wrap {
+  padding-right: 35px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000349}}
+.jselector select {
+  display: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000353}}
+.jselector button {
+  width: 30px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 11px;
+}
