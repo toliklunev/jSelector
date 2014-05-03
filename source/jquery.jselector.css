@@ -1,16 +1,27 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\000031}}
 .jselector {
   display: inline-block;
+  position: relative;
   border: 1px solid #B9B9B9;
   height: 27px;
   line-height: 27px;
   cursor: pointer;
   text-align: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\000039}}
-.jselector ul {
+.jselector .dropdown {
+  display: none;
+}
+.jselector select {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 50;
+}
+.desktop .jselector .dropdown {
   background: #FFF;
-  margin-top: -1px;
+  margin: -1px 0 0 0;
   position: absolute;
   top: 100%;
   left: 0;
@@ -20,19 +31,31 @@
   overflow: auto;
   z-index: 20;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000322}}
-.jselector ul li:hover {
+.desktop .jselector .dropdown.shown {
+  display: block;
+}
+.desktop .jselector select {
+  display: none;
+}
+.jselector ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.jselector li:hover {
   background: #95CAFF;
   color: #FFF;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000327}}
-.jselector ul li.selected {
+.jselector li.disabled {
+  background: #EEE;
+  color: #CCC;
+  cursor: default;
+}
+.jselector li.selected {
   background: #3399FF;
   color: #FFF;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000335}}
-.jselector ul > li,
-.jselector > .wrap {
+.jselector .group span, .jselector .wrap, .jselector li {
   display: block;
   height: 100%;
   padding: 0 6px;
@@ -41,15 +64,17 @@
   text-overflow: ellipsis;
   font-size: 13px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000345}}
-.jselector > .wrap {
+.jselector .group span {
+  font-size: 11px;
+  color: #CCC;
+  cursor: default;
+}
+.jselector .group ul {
+  margin-left: 6px;
+}
+.jselector .wrap {
   padding-right: 35px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000349}}
-.jselector select {
-  display: none;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/Admin\/Dropbox\/OpenServer\/domains\/jselector\.loc\/master\/source\/jquery\.jselector\.scss}line{font-family:\0000353}}
 .jselector button {
   width: 30px;
   height: 100%;
