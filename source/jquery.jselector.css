@@ -7,6 +7,9 @@
   cursor: pointer;
   text-align: left;
 }
+.jselector.is-shown .dropdown {
+  display: block;
+}
 .jselector .dropdown {
   display: none;
 }
@@ -27,12 +30,9 @@
   left: 0;
   right: 0;
   border: 1px solid #CCC;
-  max-height: 500px;
+  max-height: 250px;
   overflow: auto;
   z-index: 20;
-}
-.desktop .jselector .dropdown.shown {
-  display: block;
 }
 .desktop .jselector select {
   display: none;
@@ -83,3 +83,5 @@
   top: 0;
   font-size: 11px;
 }
+
+/*# sourceMappingURL=jquery.jselector.css.map */

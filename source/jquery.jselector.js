@@ -10,6 +10,7 @@
 
 	var configuration = {
 		//set_width : true
+		btn_text: '▼'
 	};
 
 	$(function(){
@@ -52,7 +53,7 @@
 			var $wrap     = $('<div class="wrap">').appendTo($selector);
 			var $div      = $('<div>').prependTo($wrap);
 			var $span     = $('<span>').prependTo($div);
-			var $button   = $('<button type="button">').text('▼').appendTo($wrap);
+			var $button   = $('<button type="button">').html(configuration.btn_text).appendTo($wrap);
 			var $dropdown = $('<div class="dropdown">').appendTo($selector);
 			
 			var $items,
@@ -61,11 +62,9 @@
 				$options,
 				$optgroups;
 
-			var $parent;
-
 			var shown = false;
 
-			var new_items = function(){
+			var new_items = function($parent){
 
 				var $ul = $('<ul>').appendTo($parent);
 
@@ -92,12 +91,12 @@
 
 			$select.bind('jselector:hide', function(){
 				shown = false; 
-				$dropdown.removeClass('shown');
+				$selector.removeClass('is-shown');
 			});
 
 			$select.bind('jselector:show', function(){
 				shown = true;
-				$dropdown.addClass('shown');
+				$selector.addClass('is-shown');
 			});
 
 			$select.bind('jselector:unset_width', function(){
@@ -108,6 +107,7 @@
 			// устанавливает минимальную ширину
 			$select.bind('jselector:set_width', function(){
 				var width = 0;
+				var span = $span.html();
 
 				$div.css('min-width', '');
 
@@ -123,7 +123,7 @@
 					$div.css('min-width', width);
 				}
 
-				$span.html($selected_item.html());
+				$span.html(span);
 
 				configuration.set_width = true;
 			});
@@ -140,8 +140,7 @@
 						var $optgroup = $(this);
 						var $group = $('<div>').addClass('group');
 						var label = $optgroup.attr('label');
-
-						$parent = $group;
+						
 						$group.appendTo($dropdown);
 
 						if($optgroup.is(':disabled')){
@@ -155,13 +154,12 @@
 							$group.append($span)
 						}
 
-						($.proxy(new_items, this))();
+						new_items.bind(this, $group).call();
 					});
 				}
 
 				else{
-					$parent = $dropdown;
-					($.proxy(new_items, $select))();
+					new_items.bind($select, $dropdown).call()
 				}
 
 				$options = $('option', $select);
@@ -213,7 +211,7 @@
 
 							setTimeout(function(){
 								$document.mousedown(function(e){
-									if(!$(e.target).parents().is($dropdown)){
+									if(!$(e.target).closest($dropdown).length){
 										
 										e.preventDefault();
 
@@ -229,8 +227,32 @@
 					}
 				}
 			});
+
+			if(typeof configuration.after == 'function'){
+				$.proxy(configuration.after, $selector).call();
+			}
 		};
 
-		return this.each(make);
+		this.filter(':visible').each(make);
+
+		var $invisibles = this.not(':visible');
+
+		if($invisibles.length){
+
+			var checkVisibles = setInterval(function(){
+				$invisibles.filter(':visible').each(make);
+				$invisibles = $invisibles.not(':visible');
+
+				if(!$invisibles.length){
+					clearInterval(checkVisibles);
+				}
+
+			}, 500);
+		}
 	}
+
+	$(function(){
+		$('[data-jselector="init"]').jSelector();
+	});
+	
 })(jQuery);

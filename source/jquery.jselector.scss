@@ -6,6 +6,12 @@
 	line-height: 27px;
 	cursor: pointer;
 	text-align: left;
+	
+	&.is-shown{
+		.dropdown{
+			display: block;
+		}
+	}
 
 	.dropdown{
 		display: none;
@@ -26,13 +32,9 @@
 			position: absolute;
 			top: 100%; left: 0; right: 0;
 			border: 1px solid #CCC;
-			max-height: 500px;
+			max-height: 250px;
 			overflow: auto;
 			z-index: 20;
-
-			&.shown{
-				display: block;
-			}
 
 		}
 
