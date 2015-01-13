@@ -1,0 +1,22 @@
+{
+  "name": "jselector",
+  "version": "0.1.0",
+  "homepage": "https://github.com/codefucker/jSelector",
+  "authors": [
+    "codefucker <toliklunev@ya.ru>"
+  ],
+  "description": "jQuery plugin, which give simple way to customize standard html selectors.",
+  "main": "src/jquery.jselector.js",
+  "keywords": [
+    "selector",
+    "customize"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
