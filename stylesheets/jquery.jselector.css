@@ -1,4 +1,5 @@
 .jselector {
+  position: relative;
   display: inline-block;
   border: 1px solid #B9B9B9;
   height: 27px;
@@ -7,6 +8,7 @@
   text-align: left;
 }
 .jselector ul {
+  padding: 0;
   background: #FFF;
   margin-top: -1px;
   position: absolute;
