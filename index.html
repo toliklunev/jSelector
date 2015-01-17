@@ -1,261 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<title>jSelector</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="author" content="Anatoly Lunev, http://toliklunev.ru" />
-		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
-		<link rel="stylesheet" href="css/reset.css" media="all"/>
-		<link rel="stylesheet" href="css/jquery.jselector.css" media="all"/>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.jselector.js"></script>
-	</head>
-	<body>
-		<style>
-			body{
-				font: 14px/18px Tahoma;
-			}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jSelector by codefucker</title>
 
-			.main{
-				margin: 20px auto 0;
-				width: 1000px;
-				text-align: center;
-			}
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jSelector</h1>
+        <p>jQuery plugin, which give simple way to customize standard html selectors</p>
 
-			.main > div{
-				margin: 10px 5px;
-				display: inline-block;
-			}
+        <p class="view"><a href="https://github.com/codefucker/jSelector">View the Project on GitHub <small>codefucker/jSelector</small></a></p>
 
-			.jselector{
-				width: 150px;
-			}
 
-			.custom .jselector .dropdown{
-				background: transparent;
-				font-size: 0;
-				border: 0;
-			}
+        <ul>
+          <li><a href="https://github.com/codefucker/jSelector/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/codefucker/jSelector/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/codefucker/jSelector">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="jselector" class="anchor" href="#jselector" aria-hidden="true"><span class="octicon octicon-link"></span></a>jSelector</h1>
 
-			.custom .jselector:hover .dropdown,
-			.custom .jselector:active .dropdown{
-				background-position: 0 bottom;
-			}
-
-			.c1 .jselector{
-				border-radius: 3px;
-				background: url('images/c1/bg.png');
-			}
-
-			.c1 .jselector .dropdown{
-				background-image: url('images/c1/dropdown.png');
-				width: 39px;
-				height: 27px;
-			}
-
-			.c1 .jselector li{
-				color: #000;
-			}
-
-			.c1 .jselector li:hover{
-				background: #EEE;
-				color: #000;
-			}
-
-			.c1 .jselector li.selected{
-				background: #CCC;
-				color: #000;
-			}
-
-			.c2 .jselector{
-				border-radius: 3px;
-				background: #272A27;
-				border: 1px solid #4D4D4D;
-				height: 22px;
-				font-size: 12px;
-				line-height: 22px;
-				color: #9F9F9F;
-			}
-
-			.c2 .jselector .dropdown{
-				background-image: url('images/c2/dropdown.png');
-				width: 34px;
-				height: 24px;
-				right: -1px;
-				top: -1px;
-			}
-
-			.c2 .jselector ul{
-				border: 2px solid #000;
-				background: #3A3A3A;
-			}
-
-			.c2 .jselector li{
-				color: #9F9F9F;
-			}
-
-			.c2 .jselector li:hover{
-				background: #272A27;
-			}
-
-			.c2 .jselector li.selected{
-				background: #000;
-				color: #FFF;
-			}
-
-			.c3 .jselector{
-				border-radius: 3px;
-				border: 1px solid #C0C0C0;
-				height: 22px;
-				font-size: 12px;
-				line-height: 22px;
-			}
-
-			.c3 .jselector .dropdown{
-				background-image: url('images/c3/dropdown.png');
-				width: 28px;
-				height: 22px;
-			}
-
-			.c3 .jselector:hover .dropdown{
-				background-position: 0 center;
-			}
-
-			.c3 .jselector:active .dropdown{
-				background-position: 0 bottom;
-			}
-
-			.c3 .jselector li{
-				color: #000;
-			}
-
-			.c3 .jselector li:hover{
-				background: #4EB814;
-			}
-
-			.c3 .jselector li.selected{
-				background: #158702;
-			}
-
-			.c4 .jselector{
-				background-color: #006DCC;
-				background-image: -moz-linear-gradient(top, #08C, #04C);
-				background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#04C));
-				background-image: -webkit-linear-gradient(top, #08C, #04C);
-				background-image: -o-linear-gradient(top, #08C, #04C);
-				background-image: linear-gradient(to bottom, #08C, #04C);
-				background-repeat: repeat-x;
-				border-color: #04C #04C #002A80;
-				border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-				border-radius: 3px;
-				color: #FFF;
-				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-				height: 24px;
-				font-size: 12px;
-				line-height: 24px;
-			}
-
-			.c4 .jselector:hover{
-				background-color: #04C;
-				background-position: 0 -15px;
-			}
-
-			.c4 .jselector:active{	
-				outline: 0;
-				background-image: none;	
-				-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-				-moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-				box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-			}
-
-			.c4 .jselector .dropdown{
-				font-size: 11px;
-				color: #FFF;
-			}
-
-			.c4 .jselector ul{
-				border-color: #04C;
-			}
-
-			.c4 .jselector li{
-				color: #000;
-				text-shadow: none;
-			}
-
-			.c4 .jselector li:hover{
-				background: #006DCC;
-			}
-
-			.c4 .jselector li.selected{
-				background: #04C;
-			}
-		</style>
-		<script type="text/javascript">
-			$(function(){
-				$('select').jselector();
-			});
-		</script>
-		<div class="main">
-			<div>
-				<select>
-					<option>Пункт 1</option>
-					<option>Пункт 2</option>
-					<option>Пункт 3</option>
-					<option>Пункт 4</option>
-					<option>Пункт 5</option>
-					<option>Пункт 6</option>
-					<option>Пункт 7</option>
-					<option>Пункт 8</option>
-				</select>
-			</div>
-			<div class="custom c1">
-				<select>
-					<option>Пункт 1</option>
-					<option>Пункт 2</option>
-					<option>Пункт 3</option>
-					<option>Пункт 4</option>
-					<option>Пункт 5</option>
-					<option>Пункт 6</option>
-					<option>Пункт 7</option>
-					<option>Пункт 8</option>
-				</select>
-			</div>
-			<div class="custom c2">
-				<select>
-					<option>Пункт 1</option>
-					<option>Пункт 2</option>
-					<option>Пункт 3</option>
-					<option>Пункт 4</option>
-					<option>Пункт 5</option>
-					<option>Пункт 6</option>
-					<option>Пункт 7</option>
-					<option>Пункт 8</option>
-				</select>
-			</div>
-			<div class="custom c3">
-				<select>
-					<option>Пункт 1</option>
-					<option>Пункт 2</option>
-					<option>Пункт 3</option>
-					<option>Пункт 4</option>
-					<option>Пункт 5</option>
-					<option>Пункт 6</option>
-					<option>Пункт 7</option>
-					<option>Пункт 8</option>
-				</select>
-			</div>
-			<div class="custom c4">
-				<select>
-					<option>Пункт 1</option>
-					<option>Пункт 2</option>
-					<option>Пункт 3</option>
-					<option>Пункт 4</option>
-					<option>Пункт 5</option>
-					<option>Пункт 6</option>
-					<option>Пункт 7</option>
-					<option>Пункт 8</option>
-				</select>
-			</div>
-		</div>
-	</body>
+<p>jQuery plugin, which give simple way to customize standard html selectors</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/codefucker">codefucker</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
 </html>
