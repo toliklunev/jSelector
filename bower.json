@@ -11,6 +11,9 @@
     "selector",
     "customize"
   ],
+  "dependencies": {
+    "jquery": ">=1.7.2"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
